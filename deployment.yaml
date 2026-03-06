@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: movie-service
-namespace: default
+  name: movie-service
+  namespace: default
 spec:
-replicas: 2
-selector:
-matchLabels:
-app: movie-service
-template:
-metadata:
-labels:
-app: movie-service
-spec:
-containers:
-- name: movie-service
-image: YOUR-AWS-ACCOUNT-ID.dkr.ecr.ap-south-1.amazonaws.com/movie-service:latest
-ports:
-- containerPort: 3000
-resources:
-requests:
-memory: '64Mi'
-cpu: '250m'
-limits:
-memory: '128Mi'
-cpu: '500m'
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movie-service
+  template:
+    metadata:
+      labels:
+        app: movie-service
+    spec:
+      containers:
+      - name: movie-service
+        image: YOUR-AWS-ACCOUNT-ID.dkr.ecr.ap-south-1.amazonaws.com/movie-service:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: '64Mi'
+            cpu: '250m'
+        limits:
+          memory: '128Mi'
+          cpu: '500m'
