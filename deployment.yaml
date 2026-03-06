@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: bus-service
+namespace: default
+spec:
+replicas: 2
+selector:
+matchLabels:
+app: bus-service
+template:
+metadata:
+labels:
+app: bus-service
+spec:
+containers:
+- name: bus-service
+image: YOUR-AWS-ACCOUNT-ID.dkr.ecr.ap-south-1.amazonaws.com/bus-service:latest
+ports:
+- containerPort: 3000
+resources:
+requests:
+memory: '64Mi'
+cpu: '250m'
+limits:
+memory: '128Mi'
+cpu: '500m'
